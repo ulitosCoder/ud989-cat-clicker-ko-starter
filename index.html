@@ -6,7 +6,9 @@
 </head>
 <body>
     <ul id="cat-list" data-bind="foreach: catList">
-        <div data-bind="text: name"></div>
+        <li>
+        <div data-bind="text: name, click: $parent.setCurrentCat"></div>
+        </li>
     </ul>
 
     <div id="cat" data-bind="with: currentCat">
@@ -17,9 +19,11 @@
         <div id="cat-level" data-bind="text: catLevel"></div>
         <br/>
         <div id="cat-nicknames" data-bind="if: nicknames">
-            <div>Nicknames:</div>
+            <div data-bind="if: nicknames">Nicknames:</div>
             <ul id="cat-nickname-list" data-bind="foreach: nicknames">
-                <div data-bind="text: nickname"></div>
+                <li>
+                    <div data-bind="text: $data"></div>
+                </li>
             </ul>
         </div>
     </div>
